@@ -12,16 +12,18 @@ public class GitRepoSituation {
     private String headCommit;
     private String headBranch;
     private List<String> headTags;
+    private String headDescribe;
 
     public GitRepoSituation(){
-        this(true, NO_COMMIT, null, emptyList());
+        this(true, NO_COMMIT, null, emptyList(), null);
     }
 
-    public GitRepoSituation(boolean clean, String headCommit, String headBranch, List<String> headTags) {
+    public GitRepoSituation(boolean clean, String headCommit, String headBranch, List<String> headTags, String headDescribe) {
         setClean(clean);
         setHeadCommit(headCommit);
         setHeadBranch(headBranch);
         setHeadTags(headTags);
+        setHeadDescribe(headDescribe);
     }
 
     public boolean isClean() {
@@ -57,5 +59,13 @@ public class GitRepoSituation {
 
     public void setHeadTags(List<String> headTags) {
         this.headTags = requireNonNull(headTags);
+    }
+
+    public String getHeadDescribe() {
+        return headDescribe;
+    }
+
+    public void setHeadDescribe(String headDescribe) {
+        this.headDescribe = headDescribe;
     }
 }

@@ -113,6 +113,10 @@ Create `${basedir}/.mvn/maven-git-versioning-extension.xml`.
     - The short `HEAD` commit hash (7 characters)
     - e.g. '0fc2045'
 
+- `${describe}`
+    - The `git describe` output of HEAD
+    - e.g. 'v3.1.0-71-g6219b62'
+
 - `Pattern Groups`
     - Contents of group in the regex pattern can be addressed by `group name` or `group index` e.g.
     - Named Group Example

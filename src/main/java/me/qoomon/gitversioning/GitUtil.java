@@ -51,6 +51,10 @@ public final class GitUtil {
         return rev.getName();
     }
 
+    public static String describe(Repository repository) {
+        return unchecked(() -> Git.wrap(repository).describe().call());
+    }
+
     public static GitRepoSituation situation(File directory) {
         FileRepositoryBuilder repositoryBuilder = new FileRepositoryBuilder().findGitDir(directory);
         if (repositoryBuilder.getGitDir() == null) {
@@ -62,7 +66,8 @@ public final class GitUtil {
             String headCommit = GitUtil.revParse(repository, HEAD);
             String headBranch = GitUtil.branch(repository);
             List<String> headTags = GitUtil.tag_pointsAt(repository, HEAD);
-            return new GitRepoSituation(headClean, headCommit, headBranch, headTags);
+            String headDescribe = GitUtil.describe(repository);
+            return new GitRepoSituation(headClean, headCommit, headBranch, headTags, headDescribe);
         }
     }
 }

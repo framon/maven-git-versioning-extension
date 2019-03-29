@@ -71,6 +71,7 @@ public final class GitVersioning {
         projectVersionDataMap.put("commit", repoSituation.getHeadCommit());
         projectVersionDataMap.put("commit.short", repoSituation.getHeadCommit().substring(0, 7));
         projectVersionDataMap.put("ref", gitRefName);
+        projectVersionDataMap.put("describe", repoSituation.getHeadDescribe());
         projectVersionDataMap.put(gitRefType, gitRefName);
         projectVersionDataMap.putAll(refFields);
 
